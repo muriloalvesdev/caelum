@@ -7,12 +7,10 @@ public class ContaCorrente extends Conta implements Tributavel {
 	@Override
 	public void saca(double valor) {
 		try {
-			if (this.saldo < 0) {
-				throw new IllegalArgumentException("Sua conta não contém saldo positivo!");
-			} else if (this.saldo < valor) {
-				throw new SaldoInsuficienteException("Saldo insuficiente para efetuar o saque!");
-			} else {
+			if (this.saldo >= valor) {
 				this.saldo -= (valor + 0.10);
+			} else {
+				throw new SaldoInsuficienteException("Saldo insuficiente para efetuar o saque!");
 			}
 		} catch (SaldoInsuficienteException e) {
 			System.out.println(e.getMessage());
@@ -27,4 +25,5 @@ public class ContaCorrente extends Conta implements Tributavel {
 	public double getValorImposto() {
 		return this.getSaldo() * 0.01;
 	}
+
 }

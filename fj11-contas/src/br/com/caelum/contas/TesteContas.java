@@ -5,5 +5,6 @@ import br.com.caelum.javafx.api.main.SistemaBancario;
 public class TesteContas {
 	public static void main(String[] args) {
 		SistemaBancario.mostraTela(true);
+		System.out.println("Aplicação iniciada com sucesso!");
 	}
 }
